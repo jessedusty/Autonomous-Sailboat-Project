@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<resource>
+  <object class="wxDialog" name="main window">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxStaticText" name="header text">
+          <label>Autonomous Sailboat Controller</label>
+        </object>
+      </object>
+      <object class="sizeritem">
+        <object class="wxBoxSizer">
+          <orient>wxHORIZONTAL</orient>
+          <object class="sizeritem">
+            <object class="wxToggleButton" name="connect">
+              <label>Connected</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxToggleButton" name="auto">
+              <label>Autonomous</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxToggleButton" name="man">
+              <label>Manual</label>
+            </object>
+          </object>
+        </object>
+      </object>
+      <object class="sizeritem">
+        <object class="wxFlexGridSizer">
+          <cols>2</cols>
+          <rows>2</rows>
+          <object class="sizeritem">
+            <object class="wxStaticText" name="locationlabel">
+              <label>Location</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticText" name="location">
+              <label>loc n/a</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticText" name="speedlabel">
+              <label>Ground Speed</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticText" name="speed">
+              <label>speed n/a</label>
+            </object>
+          </object>
+        </object>
+      </object>
+      <object class="sizeritem">
+        <object class="wxBoxSizer">
+          <orient>wxHORIZONTAL</orient>
+          <object class="sizeritem">
+            <object class="wxButton" name="TackButton">
+              <label>Tack</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxButton" name="GybeButton">
+              <label>Gybe Button</label>
+            </object>
+          </object>
+        </object>
+      </object>
+    </object>
+  </object>
+</resource>

@@ -1,0 +1,59 @@
+Autonomous Sailboat Protocol
+
+:::: Controls :::::
+
+Steer:
+	S R(absolute rudder position) S(relative sail position)
+
+	S{rudder}|{sail}
+
+	S R(absolute rudder position) A(absolute sail position)
+
+Maintain:
+	M C(compass direction) S(point of sail) 
+
+Stop - go into the wind:
+	T
+
+Stay - try to stay in the same position
+	Y 
+
+Do a 360
+	3
+
+Do a 720 
+	7
+
+Tack (go to same point of sail on other side): 
+	T
+
+Jibe (go to same point of sail on other side)
+	J
+
+Autonomous - goto waypoint:
+	G (HP: home point) A(lat) O(long) 
+
+Settings:
+	E P(proportional tuning value) I(integral tuning value) D(derivitive tuning value) T(highest tilt angle; 0 means disabled) 
+
+Request Data:
+
+	R G(optional: GPS) P(rudder and sail position) S(status)
+
+
+
+
+:::: Data ::::
+
+Control status:
+	S (any of these) T(teleop) M(maintaining) A(autonomous) M(Tacking or Jibing) || in addition E(taking measurements) P(taking pictures) 
+
+Tilt angles:
+	T S(sideways) F(front and back) A(Acceleration)
+
+Wind: 
+	W D(raw direction) I(corrected direction) S(speed) P(corrected Speed)
+
+GPS:
+	G A(Latitude) O(Longitiude) S(Speed over ground) C(Accuracy) D(Direction)
+
