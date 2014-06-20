@@ -9,6 +9,7 @@ Steer:
 Maintain:
 
 	M{compass direction}|{point of sail}|
+	C - current compass position
 
 Stop - go into the wind:
 	T
