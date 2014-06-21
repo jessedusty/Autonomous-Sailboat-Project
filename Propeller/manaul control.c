@@ -7,10 +7,12 @@
 fdserial *term;
 
 #define vs  10
+#define defMidpoint 900
 
 int rudderPosition, sailPosition;
 int lastRudderPosition, lastSailPosition;
 char new; 
+int midpoint;
 
 i2c *bus;
 
@@ -19,27 +21,25 @@ int convertToInt(char * input) {
 }
 
 
+int receiveParams() {
+  char string[vs];
+  new = fdserial_rxChar(term);
+  int i;
+  for (i = 0; new != '|' && i < vs; i++) {
+   string[i] = new; 
+   new = fdserial_rxChar(term);
+  }
+  string[i] = 0;
+  return convertToInt(string);
+}
+
 void getSailStuff() {
   dprint(term, "Got an S \n");
   char rudder[vs];
   char sail[vs];
-  new = fdserial_rxChar(term);
-  int i;
-  for (i = 0; new != '|' && i < vs; i++) {
-   rudder[i] = new; 
-   new = fdserial_rxChar(term);
-  }
-  rudder[i] = 0;
 
-  new = fdserial_rxChar(term);
-  for (i = 0; new != '|' && i < vs; i++) {
-    sail[i] = new; 
-    new = fdserial_rxChar(term);
-  }
-  sail[i] = 0;
-
-  rudderPosition = convertToInt(rudder);
-  sailPosition = convertToInt(sail);
+  rudderPosition = receiveParams();
+  sailPosition = receiveParams();
 
   dprint(term, "%d  %d\n", rudderPosition, sailPosition);
   moveServos();
@@ -71,8 +71,6 @@ void manageCompass() {
   cogstop(cogid());
 }
 
-
-
 void moveServos() {
   if (lastRudderPosition != rudderPosition) {
     servo_angle(2, rudderPosition);
@@ -83,6 +81,11 @@ void moveServos() {
     lastSailPosition = sailPosition;
   }
 }
+
+void setMidpoint() {
+  midpoint = receiveParams();
+  dprint(term, "Setting Midpoint to: %d", midpoint);
+}
 int main()                                    // Main function
 { 
   servo_start(); 
@@ -90,6 +93,8 @@ int main()                                    // Main function
 
   bus = i2c_newbus(1, 0, 0);   
   compass_init(bus);
+
+  midpoint = defMidpoint; 
 
   term = fdserial_open(9, 8, 0, 115200);
   new = 0; 
@@ -107,6 +112,9 @@ int main()                                    // Main function
           compassEnabled = 0;
           dprint(term, "Regular Control\n");
         }
+        break;
+      case 'I':
+        setMidpoint();
         break;
       default:
         if (compassEnabled == 1) {

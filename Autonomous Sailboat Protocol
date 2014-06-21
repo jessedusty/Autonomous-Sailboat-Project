@@ -33,10 +33,10 @@ Autonomous - goto waypoint:
 	GHP - go home - to be defined later
 	G{latitude}|{longitiude}|
 
-Settings - need to edit this
-
-	E P(proportional tuning value) I(integral tuning value) D(derivitive tuning value) T(highest tilt angle; 0 means disabled) 
-
+Settings
+	
+	I{middle rudder position}|
+	
 Request Data - need to edit this
 
 	R G(optional: GPS) P(rudder and sail position) S(status)
