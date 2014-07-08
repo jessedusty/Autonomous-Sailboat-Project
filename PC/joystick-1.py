@@ -72,7 +72,7 @@ while True:
         lastSTransmission = mapped_sail;
         lastRTransmission = mapped_rudder;
         ser.readline();
-        time.sleep(0.05);
+        time.sleep(0.1);
 
 
 
