@@ -1,3 +1,0 @@
-dat
-entry
-	nop
