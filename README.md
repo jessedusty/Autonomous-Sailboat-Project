@@ -1,9 +1,11 @@
 Autonomous-Sailboat-Project
 ===========================
 
-Project to make an autonomous sailboat using the Parallax Propellor Chip, an Xbee 900HP radio, a pile of sensors, and the PropGCC compiler.
+Project to make an autonomous sailboat using a cheap RC sailboat from HobbyKing, an Arduino, an assortment of wind instruments, and an Adafruit BNO055 MPU. (see the propeller branch for the original electronics) 
 
 This project aims to have a fully autonomous sailboat (i.e. no user control), that will sail around spots that I sail at and create maps of wind direction and speed for anylasis of how the wind moves around obstacles and to improve sailboat racing abilities!
+
+It will also be adapted to take depth measurements. 
 
 If this is all successful, this project aims to be able to take pictures with a GoPro at sailboat regattas.
 
@@ -12,13 +14,13 @@ The PC side code uses python, pyserial, and pygame for the communication to the 
 Current Status
 ==============
 
-Will complete the majority of this agenda by the end of the Summer of 2014...
+Currently I am working on a land-roving robot that will use similar electronics and code to this project in order to prototype and resolve most of the bugs as it is often difficult to debug on the water. (see: https://github.com/jessedusty/land-bot)
 
-    In the Works:
-- Stage 1: Manual Control via Logitech Dual Action Joystick - COMPLETED
-- Stage 2: Testing / running it in the water - Should be done by June 20th
-- Stage 3: Maintaining Compass Heading / staying on a compass corse - Currently Working on
-    To be Started:
+Grandiose plans: 
+
+- Stage 1: Manual Control via Logitech Dual Action Joystick
+- Stage 2: Testing / running it in the water 
+- Stage 3: Maintaining Compass Heading / staying on a compass corse 
 - Stage 4: Tacking on command using Compass Heading (turn 90 degrees)
 - Stage 5: GPS, read GPS values to computer
 - Stage 6: Wind Direction, make wind vane, get working with USDigital Encoder, send info to Computer
